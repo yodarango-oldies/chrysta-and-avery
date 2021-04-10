@@ -1,11 +1,11 @@
 body
 {
 height: 100vh;
-background: url(/images/whitebkg.jpg);
+background-image: url(/images/six.jpeg);
 background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;
-background-size: 200%;
+background-size: cover;
 }
 #wrapper
 {
@@ -66,9 +66,85 @@ margin: auto;
 width: 80px;
 padding: 0 2rem;
 }
-.home-icon img
-{
-    width: 80px;
-    padding: 1rem;
 
+.home-icon
+{
+    padding: 1rem;
+    font:600 1rem Arial, sans-serif;
+    background-color: white;
+    color: #242424;
+    margin: 2rem;
+    display: block;
+    width: 5rem;
+    border-radius: 2rem;
+    text-align: center;
+}
+#wrapper-grid{
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+    grid-template-rows: 10% 90%;
+    background-color: rgba(22, 15, 54, 0.8);
+    width: 80vw;
+    height: 70vh;
+    margin: 5vh auto 0;
+    z-index: 20;
+    overflow-Y: scroll;
+}
+
+.name-of-guest{
+grid-column: 1/2;
+border-right: 1px solid white;
+font-family: Arial, sans-serif;
+display: flex; 
+align-items: flex-start;
+justify-content: flex-start;
+color: white;
+flex-flow: column;
+}
+.nog-top div{
+    padding: 1rem .5rem;
+    border-bottom: 1px solid white;
+    box-sizing: border-box;
+    width: 100%;
+}
+.y-top div{
+    padding: 1rem .5rem;
+    border-bottom: 1px solid white;
+    box-sizing: border-box;
+    width: 100%;
+}
+.n-top div{
+    padding: 1rem .5rem;
+    border-bottom: 1px solid white;
+    box-sizing: border-box;
+    width: 100%;
+}
+.guest-coming-yes{
+    grid-column: 2/3;
+    border-right: 1px solid white;
+    font-family: Arial, sans-serif;
+    display: flex; 
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
+    flex-flow: column;
+}
+.guest-coming-no{
+    grid-column: 3/4;
+    border-right: 1px solid white;
+    font-family: Arial, sans-serif;
+    display: flex; 
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
+    flex-flow: column;
+}
+
+.top{
+    border-bottom: 1px solid white;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
 }

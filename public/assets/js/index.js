@@ -28,3 +28,13 @@ let countDown = setInterval(() =>{
     }
   }, 1000);
 
+  const rsvpButton = document.querySelector('#accsess-code-button');
+  rsvpButton.addEventListener('click', ()=>{
+  const password = document.querySelector('#accsess-code').value;
+    if(password === 'Valu3'){
+      document.querySelector('#protect-rsvp').style.display = 'none';
+      location.href = "/#contact"
+    }
+  })
+
+  
