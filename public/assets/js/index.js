@@ -1,6 +1,6 @@
 /******************TIMER************/
 // Set the date we're counting down to
-let countDownDate = new Date("August 06, 2021 18:30:00").getTime();
+let countDownDate = new Date("August 06, 2021 19:00:00").getTime();
 
 let countDown = setInterval(() =>{
 
@@ -31,7 +31,7 @@ let countDown = setInterval(() =>{
   const rsvpButton = document.querySelector('#accsess-code-button');
   rsvpButton.addEventListener('click', ()=>{
   const password = document.querySelector('#accsess-code').value;
-    if(password === '123'){
+    if(password === 'diamond'){
       document.querySelector('#protect-rsvp').style.display = 'none';
       location.href = "/#contact"
     }
