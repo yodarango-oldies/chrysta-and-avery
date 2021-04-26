@@ -7,122 +7,96 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 background-size: cover;
 }
-#wrapper
-{
-    background: #faeefa ;
-    padding: 3rem 0;
-    width: 100%;
-    max-width: 600px;
-    height: 400px;
-    margin: 10rem auto;
-    position: relative;
-}
-.title-message
-{
-width:90%;
-color: #e63946;
-font-family: 'Pacifico', cursive;
-font-weight: 800;
-text-align: center;
-margin: auto;
-}
-.Subttitle-message
-{
-    color: #457b9d; 
-    font-family: 'Prompt', sans-serif;
-    text-align: center;
-    width:90%;
-    margin: auto;
-    font-size: 1.5rem;
-}
-.rsvp-site-examples
-{
-    width:90%;
-    max-width: 800px;
-    font-family: 'Prompt', sans-serif;
-    font-weight: 200;
-    font-size: 1.2rem;
-}
-.example
-{
-    color: #457b9d; 
-    font-family: 'Prompt', sans-serif;
-    text-align: left;
-    width:90%;
-    margin: auto;
-    font-size: 1.3rem;
-}
-.social-icons
-{
-    margin: 2rem auto;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-.social-icons img
-{
-width: 80px;
-padding: 0 2rem;
-}
-
-.home-icon
-{
-    padding: 1rem;
-    font:600 1rem Arial, sans-serif;
-    background-color: white;
-    color: #242424;
-    margin: 2rem;
-    display: block;
-    width: 5rem;
-    border-radius: 2rem;
-    text-align: center;
-}
 #wrapper-grid{
     display: grid;
-    grid-template-columns: 70% 15% 15%;
+    grid-template-columns: 65% 10% 10% 15%;
     grid-template-rows: 10% 90%;
     background-color: rgba(22, 15, 54, 0.8);
-    width: 80vw;
+    width: 95vw;
     height: 70vh;
+    overflow-y: scroll;
     margin: 5vh auto 0;
     z-index: 20;
     overflow-Y: scroll;
 }
 
+#wrapper-grid div {
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+}
 .name-of-guest{
 grid-column: 1/2;
 border-right: 1px solid white;
 font-family: Arial, sans-serif;
+font-size: 1rem;
 display: flex; 
 align-items: flex-start;
 justify-content: flex-start;
+flex-wrap: nowrap;
 color: white;
 flex-flow: column;
+overflow-x: scroll;
 }
+
+.name-of-guest div{
+    border-right: 1px solid white;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    display: flex; 
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    color: white;
+    flex-flow: row;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+.number-of-guest{
+    grid-column: 4/5;
+    border-right: 1px solid white;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    display: flex; 
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
+    flex-flow: column;
+}
+
 .nog-top div{
     padding: 1rem .5rem;
     border-bottom: 1px solid white;
-    box-sizing: border-box;
+    box-sizing: border-box; 
+    font-size: 1rem;
     width: 100%;
 }
 .y-top div{
     padding: 1rem .5rem;
     border-bottom: 1px solid white;
+    font-size: 1rem;
     box-sizing: border-box;
     width: 100%;
 }
 .n-top div{
     padding: 1rem .5rem;
     border-bottom: 1px solid white;
+    font-size: 1rem;
     box-sizing: border-box;
     width: 100%;
+}
+
+.nuog-top div{
+    padding: 1rem .5rem;
+    border-bottom: 1px solid white;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1rem;
 }
 .guest-coming-yes{
     grid-column: 2/3;
     border-right: 1px solid white;
     font-family: Arial, sans-serif;
+    font-size: 1rem;
     display: flex; 
     align-items: flex-start;
     justify-content: flex-start;
@@ -133,6 +107,7 @@ flex-flow: column;
     grid-column: 3/4;
     border-right: 1px solid white;
     font-family: Arial, sans-serif;
+    font-size: 1rem;
     display: flex; 
     align-items: flex-start;
     justify-content: flex-start;
@@ -144,7 +119,50 @@ flex-flow: column;
     border-bottom: 1px solid white;
     color: white;
     font-family: Arial, sans-serif;
+    font-size: 1rem;
     display: flex; 
     align-items: center;
     justify-content: center;
+}
+
+#total-guests{
+    background-color: var(--sage-green);
+    color: white;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    padding: 0;
+    line-height: 0;
+}
+#total-guests{
+    background-color: #242424;
+    color: white;
+    height: 6rem;
+    width: 6rem;
+    margin: 2rem auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    padding: 0;
+    line-height: 0;
+}
+.guest-coming-yes.y-top div{
+    font-size: .7rem;
+}
+.home-icon{
+    background-color: white;
+    color: #242424;
+    padding: 1rem 2rem;
+    font: 600 1.5rem Arial;
+    border-radius: 3rem;
+    margin: 2rem auto;
+    display: block;
+    text-align: center;
+    max-width: 6rem;
 }

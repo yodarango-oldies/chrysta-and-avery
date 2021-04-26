@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev" : "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mongoose": "^5.12.5",
     "nedb": "^1.8.0"
   },
   "devDependencies": {

@@ -1691,3 +1691,11 @@ transition: 300ms  ease-in-out;
 			-webkit-appearance: radio !important;
 			-ms-appearance: radio !important;
 		}
+		#go-map{
+			border: 1px white solid;
+			padding: 1rem 2rem;
+			display: block;
+			margin: 2rem auto;
+			text-align: center;
+
+		}
