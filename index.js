@@ -44,7 +44,7 @@ const rsvpSchema = new mongoose.Schema({
   app.post('/rsvp', async (req, res)=>{
     const saveRsvp = new Rsvp({ ...req.body })
       const msg = {
-          to: 'rangel_lakers26@hotmail.com', // Change to your recipient
+          to: 'avery.christa.wedding@gmail.com', // Change to your recipient
           from: 'alayna_miracle@outlook.com', // Change to your verified sender
           subject: `${req.body.name} has RSVP'd for your wedding`,
           html: `
