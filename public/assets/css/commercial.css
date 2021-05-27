@@ -14,7 +14,7 @@ background-size: cover;;
     overflow-y: scroll;
     margin: 5vh auto 0;
     z-index: 20;
-    overflow-Y: scroll;
+    overflow-X: hidden;
     box-sizing: border-box;
 }
 
