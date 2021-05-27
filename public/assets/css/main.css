@@ -1685,7 +1685,7 @@ transition: 300ms  ease-in-out;
 			opacity: 0;
 		}
 
-		#coming, #not-coming{
+		#coming, #not-coming, #coming-reception, #not-coming-reception{
 			appearance: radio !important;
 			-moz-appearance: radio !important;
 			-webkit-appearance: radio !important;
@@ -1700,12 +1700,16 @@ transition: 300ms  ease-in-out;
 
 		}
 
-		#number-of-guests-wrapper{
+		#number-of-guests-wrapper, #number-of-guests-wrapper-reception{
 			display: none;
 		}
 
-		#number-of-guests-wrapper #name{
+		#number-of-guests-wrapper #name, #number-of-guests-wrapper-reception #name{
 			display: inline-block;
 			width: 8rem;
 			margin: 1rem 1rem 1rem 0;
+		}
+
+		.reception-attendance-wrapper{
+			display: none;
 		}

@@ -40,11 +40,27 @@ let countDown = setInterval(() =>{
   const comingRadioButton = document.querySelector('#coming');
   const notComingRadioButton = document.querySelector('#not-coming');
   const numberOfGuestsWrapper = document.querySelector('#number-of-guests-wrapper');
+  const comingRadioButtonReception = document.querySelector('#coming-reception');
+  const notComingRadioButtonReception = document.querySelector('#not-coming-reception');
+  const numberOfGuestsReception = document.querySelector('#number-of-guests-wrapper-reception');
+
+  const receptionWrapper = document.querySelector('.reception-attendance-wrapper')
+
 
   comingRadioButton.addEventListener('click', ()=>{
+    receptionWrapper.style.display = 'block'
     numberOfGuestsWrapper.style.display = 'block'
   })
 
   notComingRadioButton.addEventListener('click', ()=>{
+    receptionWrapper.style.display = 'none'
     numberOfGuestsWrapper.style.display = 'none'
+  })
+
+  comingRadioButtonReception.addEventListener('click', ()=>{
+    numberOfGuestsReception.style.display = 'block'
+  })
+
+  notComingRadioButtonReception.addEventListener('click', ()=>{
+    numberOfGuestsReception.style.display = 'none'
   })

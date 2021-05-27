@@ -1,47 +1,41 @@
 
 const pullList = async() =>{
+
   const data =  await fetch('/rsvp');
   const response = await data.json();
-  const name = document.querySelector('.nog-top');
-  const yesComing = document.querySelector('.y-top');
-  const noComing = document.querySelector('.n-top');
-  const number = document.querySelector('.number-of-guest');
-  const total = document.querySelector('#total-guests');
-  let totalCount = 0;
 
-console.log(response)
+  const wrapper = document.querySelector('#wrapper-grid');
+  const guestCount = document.querySelector('.total-guests');
+  const guestCountReception = document.querySelector('.total-guests-reception');
+  let count = 0;
+  let countReception = 0;
 
-  for (item of response)
-  {
-    const  guest = document.createElement('DIV');
-    guest.textContent = item.name;
-    name.appendChild(guest)
+  for (item of response){
 
-    const numberr = document.createElement('DIV');
-    numberr.textContent = item.count
-    number.appendChild(numberr)
+    const guestCard = document.createElement('DIV');
+    guestCard.className = 'guest-card'
+    const guestCardData = `
 
-    if(item.coming == 'Definitely Coming!'){
-        const  yes = document.createElement('DIV');
-        yes.textContent = '✅';
-        yesComing.appendChild(yes)
-        const  no = document.createElement('DIV');
-        no.textContent = '.';
-        no.style.color = 'rgba(22, 15, 54, 0.8)'
-        noComing.appendChild(no)
-    } else if (item.coming== "Sorry, won't be able to come!"){
-        const  yes = document.createElement('DIV');
-        yes.textContent = '.';
-        yesComing.appendChild(yes)
-        yes.style.color = 'rgba(22, 15, 54, 0.8)'
-        const  no = document.createElement('DIV');
-        no.textContent = '❌';
-        noComing.appendChild(no)
-    }
-    totalCount = totalCount + item.count
+    <div class = "guest-card_name">${item.name}</div>
+    <div class="guest-card_attending"><span>Coming to the Wedding?</span> ${item.coming}</div>
+    <br>
+    <br>
+    <div class="guest-card_ceremony"><span>Adults coming to Ceremony</span> ${item.adultsNumber}</div>
+    <div class="guest-card_ceremony"><span>Children coming to Ceremony</span> ${item.childrenNumber}</div>
+    <br>
+    <br>
+    <div class="guest-card_reception"><span>Adults coming to Reception</span> ${item.adultsNumberReception}</div>
+    <div class="guest-card_reception"><span>Children coming to Reception</span> ${item.childrenNumberReception}</div>
+`
+    guestCard.innerHTML = guestCardData
+    wrapper.appendChild(guestCard)
+
+    count += (parseInt(item.adultsNumber) + parseInt(item.childrenNumber))
+    countReception += (parseInt(item.adultsNumberReception) + parseInt(item.childrenNumberReception))
   }
-  total.textContent = totalCount
-
+  guestCount.textContent = `C: ${count}`;
+  guestCountReception.textContent = `R: ${countReception}`;
+  console.log(response)
 }
 
 pullList()

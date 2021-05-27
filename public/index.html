@@ -89,16 +89,26 @@
 											<input type="text" name="name" id="name" placeholder="required" required/>
 										</div>
 										<div class="field half">
-											<div><input name="coming" id="coming" type="radio"  value="Definitely Coming!"/> Joyfully Accepts</div>
+											<div><input name="coming" id="coming" type="radio"  value="Yes"/> Joyfully Accepts</div>
 											<div id = "number-of-guests-wrapper">
 												<input type="text" name="adultsNumber" id="name" placeholder="# of Adults" />
 												<input type="text" name="childrenNumber" id="name" placeholder="# of Children" >
 											</div>
-											<div><input name="coming" id="not-coming" type="radio" value="Sorry, won't be able to come!"/> Regretfully declines</div>
+											<div><input name="coming" id="not-coming" type="radio" value="No"/> Regretfully declines</div>
 										</div>
-										<div class="field">
+										<!-- <div class="field">
 											<label for="message">Leave a message for the bride and grrom</label>
 											<textarea name="message" id="message" rows="4" placeholder="Optional"></textarea>
+										</div> -->
+										<div class="field half reception-attendance-wrapper">
+											<label for="coming">Is everyone attending the reception?</label>
+											<div><input name="receptionAttendance" id="not-coming-reception" type="radio" value="Yes"/>Yes</div>
+											<div><input name="receptionAttendance" id="coming-reception" type="radio"  value="No"/>No</div>
+											<div id = "number-of-guests-wrapper-reception">
+												<label for="">Who is attending the reception?</label>
+												<input type="text" name="adultsNumberReception" id="name" placeholder="# of Adults" />
+												<input type="text" name="childrenNumberReception" id="name" placeholder="# of Children" >
+											</div>
 										</div>
 										<div class="field half">
 										</div>

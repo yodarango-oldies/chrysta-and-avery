@@ -30,10 +30,13 @@ connectDB();
 
 const rsvpSchema = new mongoose.Schema({
     name: String,
-    count: Number,
-    message: String,
     coming: String,
-    date: Date
+    date: Date,
+    receptionAttendance: String,
+    adultsNumber: String,
+    childrenNumber: String,
+    adultsNumberReception: String,
+    childrenNumberReception: String
 
   })
   
@@ -41,8 +44,13 @@ const rsvpSchema = new mongoose.Schema({
 
   app.post('/rsvp', async (req, res)=>{
 
-    if (!req.body.adultsNumber) return req.body.adultsNumber = 0;
-    if (!childrenNumber) return req.body.adultsNumber = 0;
+    if (!req.body.adultsNumber){ req.body.adultsNumber = 0;}
+    if (!req.body.childrenNumber) {req.body.childrenNumber = 0;}
+    if (!req.body.adultsNumberReception){ req.body.adultsNumberReception = 0;}
+    if (!req.body.childrenNumberReception) {req.body.childrenNumberReception = 0;}
+    if (!req.body.receptionAttendance) {req.body.receptionAttendance = 'No one is coming to the reception';}
+    if (req.body.receptionAttendance && !req.body.adultsNumberReception) {req.body.adultsNumberReception = req.body.adultsNumber; req.body.childrenNumberReception = req.body.childrenNumber ; }
+
     const saveRsvp = new Rsvp({ ...req.body, date: Date.now() })
       const msg = {
           to: 'avery.christa.wedding@gmail.com',
@@ -50,24 +58,17 @@ const rsvpSchema = new mongoose.Schema({
           from: 'alayna_miracle@outlook.com', // verified sender
           subject: `${req.body.name} has RSVP'd for your wedding`,
           html: `
-          <svg style="width: 50vw; margin: 5rem 25vw;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 507.2 507.2" style="enable-background:new 0 0 507.2 507.2;" xml:space="preserve">
-     <circle style="fill:#32BA7C;" cx="253.6" cy="253.6" r="253.6"/>
-     <path style="fill:#0AA06E;" d="M188.8,368l130.4,130.4c108-28.8,188-127.2,188-244.8c0-2.4,0-4.8,0-7.2L404.8,152L188.8,368z"/>
-     <g>
-         <path style="fill:#FFFFFF;" d="M260,310.4c11.2,11.2,11.2,30.4,0,41.6l-23.2,23.2c-11.2,11.2-30.4,11.2-41.6,0L93.6,272.8
-             c-11.2-11.2-11.2-30.4,0-41.6l23.2-23.2c11.2-11.2,30.4-11.2,41.6,0L260,310.4z"/>
-         <path style="fill:#FFFFFF;" d="M348.8,133.6c11.2-11.2,30.4-11.2,41.6,0l23.2,23.2c11.2,11.2,11.2,30.4,0,41.6l-176,175.2
-             c-11.2,11.2-30.4,11.2-41.6,0l-23.2-23.2c-11.2-11.2-11.2-30.4,0-41.6L348.8,133.6z"/>
-     </g>
-     </svg>
-     <h1 style="font: 600 2rem Arial; color: #242424; width: 100%; text-align: center;">HEY CRISTA!</h1>
-     <p style="font: 300 1.5rem Arial; color: #0AA06E; width: 100%; text-align: center;"><span style="color: #dc2f02; font: inherit;">${req.body.name}</span> has just rsvp'd for your wedding with a count of <span style="color: #dc2f02; font: inherit;">${req.body.adultsNumber} adults
-     and ${req.body.childrenNumber} children</span>. 
-    They said about coming: <span style="color: #dc2f02; font: inherit;">${req.body.coming}</span> </p>
-    <div style="font: 300 1.2rem Arial; color: #242424; width: 100%; text-align: center;">If they left a message it will be displayed below.</div>
-    <p style="font: 300 1.2rem Arial; color: #242424; width: 100%; text-align: center;">${req.body.message}</p>
- `
+     <h1 style="font: 600 2rem Arial; color: #242424; width: 100%; text-align: center;">HEY CRISTA! 🎉🎉</h1>
+     <p style= "font: 400 1.2rem Arial; color: #242424;">${req.body.name} has RSVP'd for your wedding. Here is the info:<p>
+     <div style = "background: #f0f0f0; padding: 1rem; font-family: Arial, sans-serif"> 
+     <div style= "font: 400 1.2rem Arial; color: #1d3557;"> <span style = "color: #fca311; font: 800 1.4rem Arial;">Name: </span>${req.body.name}</div> <br><br>
+     <div style= "font: 400 1.2rem Arial; color: #1d3557;"> <span style = "color: #e63946; font: 800 1.4rem Arial;">Attending: </span>${req.body.coming}</div> <br><br>
+     <div style= "font: 400 1.2rem Arial; color: #1d3557;"> <span style = "color: #06d6a0; font: 800 1.4rem Arial;">Adults in Ceremony: </span>${req.body.adultsNumber}</div>
+     <div style= "font: 400 1.2rem Arial; color: #1d3557;"> <span style = "color: #06d6a0; font: 800 1.4rem Arial;">Children in Ceremony: </span>${req.body.childrenNumber}</div> <br><br>
+     <div style= "font: 400 1.2rem Arial; color: #1d3557;"> <span style = "color: #8338ec; font: 800 1.4rem Arial;">Adults in Reception: </span>${req.body.adultsNumberReception}</div>
+     <div style= "font: 400 1.2rem Arial; color: #1d3557;"> <span style = "color: #8338ec; font: 800 1.4rem Arial;">Children in Reception: </span>${req.body.adultsNumberReception}</div>
+     </div>
+      `
         }
         sgMail
         .send(msg)

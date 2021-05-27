@@ -8,8 +8,6 @@ background-attachment: fixed;
 background-size: cover;;
 }
 #wrapper-grid{
-    display: grid;
-    grid-template-columns: 50% 10% 10% 15% 15%;
     background-color: rgba(255, 255, 255, 0.9);
     width: 95vw;
     height: 70vh;
@@ -17,43 +15,40 @@ background-size: cover;;
     margin: 5vh auto 0;
     z-index: 20;
     overflow-Y: scroll;
-}
-#wrapper-grid div {
-    color: rgb(24, 21, 21);
-    font-family: Arial, sans-serif;
-    padding: .5rem;
-    height: 2rem;
-    padding: .5rem;
-    border: 1px solid rgb(24, 21, 21);
-}
-.name{
-    grid-column: 1/2;
-    grid-row: 1/2;
+    box-sizing: border-box;
 }
 
-.yes{
-    grid-column: 2 / 3;
-    grid-row: 1/2;
-}
-
-.no{
-    grid-column: 3 / 4;
-    grid-row: 1/2;
-}
-.kids{
-    grid-column: 4 / 5;
-    grid-row: 1/2;
-}
-.adults{
-    grid-column: 5 / 6;
-    grid-row: 1/2;
-}
-.table-item{
+.guest-card{
     width: 100%;
-    grid-column: 1 / 6;
+    margin: 0 0 2rem;
+}
+.guest-card div{
+    color: #242424;
+    font: 800 1.4rem Arial, sans-serif;
+    margin: auto;
+}
+.guest-card_name{
+    background-color: #f08080;
+    padding: .5rem;
+    width: 100%;
+    color: white !important;
+    font: 800 1.3rem Arial, sans-serif !important;
+}
+.guest-card_attending span {
+    font: 600 1.1rem Arial, sans-serif;
+    color: #fca311;
 }
 
-#total-guests{
+.guest-card_ceremony span{
+    color: #3a86ff;
+    font: 600 1.1rem Arial, sans-serif;
+}
+.guest-card_reception span{
+    color: #06d6a0;
+    font: 600 1.1rem Arial, sans-serif;
+}
+
+/* #total-guests{
     background-color: #242424;
     color: white;
     height: 6rem;
@@ -66,7 +61,7 @@ background-size: cover;;
     font-size: 2.5rem;
     padding: 0;
     line-height: 0;
-}
+} */
 .home-icon{
     background-color: white;
     color: #242424;
@@ -77,4 +72,30 @@ background-size: cover;;
     display: block;
     text-align: center;
     max-width: 6rem;
+}
+.count-wrapper{
+width: 90%;
+height: 6rem;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.count-wrapper .total-guests{
+    background-color: #f15bb5;
+    color: white;
+    font: 800 2rem Arial, sans-serif;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    width: 50%;
+    padding: .5rem 2rem;
+}
+.count-wrapper .total-guests-reception{
+    background-color: #00bbf9;
+    color: white;
+    font: 800 2rem Arial, sans-serif;
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    width: 50%;
+    padding: .5rem 2rem;
 }
