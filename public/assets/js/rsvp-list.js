@@ -21,7 +21,7 @@ console.log(response)
     numberr.textContent = item.count
     number.appendChild(numberr)
 
-    if(item.coming == 'I am Coming'){
+    if(item.coming == 'Definitely Coming!'){
         const  yes = document.createElement('DIV');
         yes.textContent = '✅';
         yesComing.appendChild(yes)
@@ -29,7 +29,7 @@ console.log(response)
         no.textContent = '.';
         no.style.color = 'rgba(22, 15, 54, 0.8)'
         noComing.appendChild(no)
-    } else if (item.coming== "Sorry, I won't be able to come"){
+    } else if (item.coming== "Sorry, won't be able to come!"){
         const  yes = document.createElement('DIV');
         yes.textContent = '.';
         yesComing.appendChild(yes)

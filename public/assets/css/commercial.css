@@ -5,13 +5,12 @@ background-image: url(/images/six.jpeg);
 background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;
-background-size: cover;
+background-size: cover;;
 }
 #wrapper-grid{
     display: grid;
-    grid-template-columns: 65% 10% 10% 15%;
-    grid-template-rows: 10% 90%;
-    background-color: rgba(22, 15, 54, 0.8);
+    grid-template-columns: 50% 10% 10% 15% 15%;
+    background-color: rgba(255, 255, 255, 0.9);
     width: 95vw;
     height: 70vh;
     overflow-y: scroll;
@@ -19,125 +18,41 @@ background-size: cover;
     z-index: 20;
     overflow-Y: scroll;
 }
-
 #wrapper-grid div {
-    overflow-x: scroll;
-    flex-wrap: nowrap;
+    color: rgb(24, 21, 21);
+    font-family: Arial, sans-serif;
+    padding: .5rem;
+    height: 2rem;
+    padding: .5rem;
+    border: 1px solid rgb(24, 21, 21);
 }
-.name-of-guest{
-grid-column: 1/2;
-border-right: 1px solid white;
-font-family: Arial, sans-serif;
-font-size: 1rem;
-display: flex; 
-align-items: flex-start;
-justify-content: flex-start;
-flex-wrap: nowrap;
-color: white;
-flex-flow: column;
-overflow-x: scroll;
+.name{
+    grid-column: 1/2;
+    grid-row: 1/2;
 }
 
-.name-of-guest div{
-    border-right: 1px solid white;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    display: flex; 
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    color: white;
-    flex-flow: row;
-    overflow-x: scroll;
-    white-space: nowrap;
-}
-.number-of-guest{
-    grid-column: 4/5;
-    border-right: 1px solid white;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    display: flex; 
-    align-items: flex-start;
-    justify-content: flex-start;
-    color: white;
-    flex-flow: column;
+.yes{
+    grid-column: 2 / 3;
+    grid-row: 1/2;
 }
 
-.nog-top div{
-    padding: 1rem .5rem;
-    border-bottom: 1px solid white;
-    box-sizing: border-box; 
-    font-size: 1rem;
+.no{
+    grid-column: 3 / 4;
+    grid-row: 1/2;
+}
+.kids{
+    grid-column: 4 / 5;
+    grid-row: 1/2;
+}
+.adults{
+    grid-column: 5 / 6;
+    grid-row: 1/2;
+}
+.table-item{
     width: 100%;
-}
-.y-top div{
-    padding: 1rem .5rem;
-    border-bottom: 1px solid white;
-    font-size: 1rem;
-    box-sizing: border-box;
-    width: 100%;
-}
-.n-top div{
-    padding: 1rem .5rem;
-    border-bottom: 1px solid white;
-    font-size: 1rem;
-    box-sizing: border-box;
-    width: 100%;
+    grid-column: 1 / 6;
 }
 
-.nuog-top div{
-    padding: 1rem .5rem;
-    border-bottom: 1px solid white;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 1rem;
-}
-.guest-coming-yes{
-    grid-column: 2/3;
-    border-right: 1px solid white;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    display: flex; 
-    align-items: flex-start;
-    justify-content: flex-start;
-    color: white;
-    flex-flow: column;
-}
-.guest-coming-no{
-    grid-column: 3/4;
-    border-right: 1px solid white;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    display: flex; 
-    align-items: flex-start;
-    justify-content: flex-start;
-    color: white;
-    flex-flow: column;
-}
-
-.top{
-    border-bottom: 1px solid white;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-}
-
-#total-guests{
-    background-color: var(--sage-green);
-    color: white;
-    height: 6rem;
-    width: 6rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    padding: 0;
-    line-height: 0;
-}
 #total-guests{
     background-color: #242424;
     color: white;
@@ -151,9 +66,6 @@ overflow-x: scroll;
     font-size: 2.5rem;
     padding: 0;
     line-height: 0;
-}
-.guest-coming-yes.y-top div{
-    font-size: .7rem;
 }
 .home-icon{
     background-color: white;

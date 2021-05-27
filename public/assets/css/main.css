@@ -1685,7 +1685,7 @@ transition: 300ms  ease-in-out;
 			opacity: 0;
 		}
 
-		#coming{
+		#coming, #not-coming{
 			appearance: radio !important;
 			-moz-appearance: radio !important;
 			-webkit-appearance: radio !important;
@@ -1698,4 +1698,14 @@ transition: 300ms  ease-in-out;
 			margin: 2rem auto;
 			text-align: center;
 
+		}
+
+		#number-of-guests-wrapper{
+			display: none;
+		}
+
+		#number-of-guests-wrapper #name{
+			display: inline-block;
+			width: 8rem;
+			margin: 1rem 1rem 1rem 0;
 		}

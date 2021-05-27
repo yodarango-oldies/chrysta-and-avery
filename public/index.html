@@ -89,17 +89,18 @@
 											<input type="text" name="name" id="name" placeholder="required" required/>
 										</div>
 										<div class="field half">
-											<label for="number"># of guests <span style="font-size: 10px; font-style: italic;"></span></span></label>
-											<input type="text" name="count" id="phone" placeholder="Enter 0 if not coming" required/>
+											<div><input name="coming" id="coming" type="radio"  value="Definitely Coming!"/> Joyfully Accepts</div>
+											<div id = "number-of-guests-wrapper">
+												<input type="text" name="adultsNumber" id="name" placeholder="# of Adults" value = "0"/>
+												<input type="text" name="childrenNumber" id="name" placeholder="# of Children" value = "0"/>
+											</div>
+											<div><input name="coming" id="not-coming" type="radio" value="Sorry, won't be able to come!"/> Regretfully declines</div>
 										</div>
 										<div class="field">
-											<label for="message">Message</label>
+											<label for="message">Leave a message for the bride and grrom</label>
 											<textarea name="message" id="message" rows="4" placeholder="Optional"></textarea>
 										</div>
 										<div class="field half">
-											<label for="coming">Are You Coming?</label>
-											Yes<input name="coming" id="coming" type="radio"  value="I am Coming"/>
-											No<input name="coming" id="coming" type="radio" value="Sorry, I won't be able to come :("/>
 										</div>
 									</div>
 									

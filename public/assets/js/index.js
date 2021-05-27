@@ -37,4 +37,14 @@ let countDown = setInterval(() =>{
     }
   })
 
-  
+  const comingRadioButton = document.querySelector('#coming');
+  const notComingRadioButton = document.querySelector('#not-coming');
+  const numberOfGuestsWrapper = document.querySelector('#number-of-guests-wrapper');
+
+  comingRadioButton.addEventListener('click', ()=>{
+    numberOfGuestsWrapper.style.display = 'block'
+  })
+
+  notComingRadioButton.addEventListener('click', ()=>{
+    numberOfGuestsWrapper.style.display = 'none'
+  })

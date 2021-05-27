@@ -3,6 +3,8 @@ const express  = require('express');
 const app =  express();
 const mongoose = require('mongoose')
 const PORT = process.env.PORT || 3000;
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SEND_GRID)
 
 ////Middeware
 app.use(express.static(__dirname + '/public'));
@@ -26,26 +28,23 @@ const connectDB = async ()=>{
 
 connectDB();
 
-module.exports = connectDB;
-
 const rsvpSchema = new mongoose.Schema({
     name: String,
     count: Number,
     message: String,
-    coming: String
+    coming: String,
+    date: Date
 
   })
   
   const Rsvp = mongoose.model('Rsvp', rsvpSchema);
-  
-  const sgMail = require('@sendgrid/mail');
-  sgMail.setApiKey(process.env.SEND_GRID)
-  
+
   app.post('/rsvp', async (req, res)=>{
-    const saveRsvp = new Rsvp({ ...req.body })
+    const saveRsvp = new Rsvp({ ...req.body, date: Date.now() })
       const msg = {
-          to: 'avery.christa.wedding@gmail.com', // Change to your recipient
-          from: 'alayna_miracle@outlook.com', // Change to your verified sender
+          to: 'avery.christa.wedding@gmail.com',
+          //to: 'paradymuseless@gmail.com',  // Development
+          from: 'alayna_miracle@outlook.com', // verified sender
           subject: `${req.body.name} has RSVP'd for your wedding`,
           html: `
           <svg style="width: 50vw; margin: 5rem 25vw;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -60,7 +59,8 @@ const rsvpSchema = new mongoose.Schema({
      </g>
      </svg>
      <h1 style="font: 600 2rem Arial; color: #242424; width: 100%; text-align: center;">HEY CRISTA!</h1>
-     <p style="font: 300 1.5rem Arial; color: #0AA06E; width: 100%; text-align: center;"><span style="color: #dc2f02; font: inherit;">${req.body.name}</span> has just rsvp'd for your wedding with a count of <span style="color: #dc2f02; font: inherit;">${req.body.count}</span> . 
+     <p style="font: 300 1.5rem Arial; color: #0AA06E; width: 100%; text-align: center;"><span style="color: #dc2f02; font: inherit;">${req.body.name}</span> has just rsvp'd for your wedding with a count of <span style="color: #dc2f02; font: inherit;">${req.body.adultsNumber} adults
+     and ${req.body.childrenNumber} children</span>. 
     They said about coming: <span style="color: #dc2f02; font: inherit;">${req.body.coming}</span> </p>
     <div style="font: 300 1.2rem Arial; color: #242424; width: 100%; text-align: center;">If they left a message it will be displayed below.</div>
     <p style="font: 300 1.2rem Arial; color: #242424; width: 100%; text-align: center;">${req.body.message}</p>
@@ -85,22 +85,24 @@ const rsvpSchema = new mongoose.Schema({
   })
   
   app.get('/rsvp', async (req, res)=>{
-  const data = await Rsvp.find({})
-  res.send(data)
+    try {
+      const rsvps = await Rsvp.find({}).sort({date: -1}).exec()
+      res.send(rsvps)
+    } catch (error) {
+     error.log(error) 
+    }
   })
   
-  app.get('/', (req, res)=>{
-      res.send('index.html')
-  })
+
   app.get('/thank-you', (req, res)=>{
     res.sendFile(`${__dirname}/public/thankyou.html`)
   })
+
+  app.get('/', (req, res)=>{
+      res.send('index.html')
+  })
   
-  
-  
-  console.log(process.env.SEND_GRID)
-  
-  app.listen(process.env.PORT || 5000, (error)=>{
+  app.listen(PORT, (error)=>{
     if (error) return console.log(error)
     console.log(`connected on ${5000}`)
   })
