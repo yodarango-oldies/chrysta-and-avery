@@ -40,6 +40,9 @@ const rsvpSchema = new mongoose.Schema({
   const Rsvp = mongoose.model('Rsvp', rsvpSchema);
 
   app.post('/rsvp', async (req, res)=>{
+
+    if (!req.body.adultsNumber) return req.body.adultsNumber = 0;
+    if (!childrenNumber) return req.body.adultsNumber = 0;
     const saveRsvp = new Rsvp({ ...req.body, date: Date.now() })
       const msg = {
           to: 'avery.christa.wedding@gmail.com',
