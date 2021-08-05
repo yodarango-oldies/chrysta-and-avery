@@ -1,6 +1,8 @@
 /******************TIMER************/
 // Set the date we're counting down to
 let countDownDate = new Date("August 06, 2021 19:00:00").getTime();
+    
+const wrapper = document.querySelector('#counterWrapper');
 
 let countDown = setInterval(() =>{
 
@@ -25,6 +27,8 @@ let countDown = setInterval(() =>{
     // If the count down is finished, write some text 
     if (distance < 0) {
       clearInterval(x);
+      wrapper.style.display = "none"
+
     }
   }, 1000);
 

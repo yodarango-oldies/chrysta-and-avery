@@ -1,4 +1,4 @@
-//require('dotenv').config()
+require('dotenv').config()
 const express  = require('express');
 const app =  express();
 const mongoose = require('mongoose')
@@ -102,12 +102,16 @@ const rsvpSchema = new mongoose.Schema({
     res.sendFile(`${__dirname}/public/thankyou.html`)
   })
 
+    app.get('/watch', (req, res)=>{
+    res.sendFile(`${__dirname}/public/watch.html`)
+  })
+
   app.get('/', (req, res)=>{
       res.send('index.html')
   })
   
   app.listen(PORT, (error)=>{
     if (error) return console.log(error)
-    console.log(`connected on ${5000}`)
+    console.log(`connected on ${PORT}`)
   })
   

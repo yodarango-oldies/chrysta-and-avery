@@ -1,3 +1,7 @@
+
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
+
 body
 {
 height: 100vh;
@@ -98,4 +102,49 @@ justify-content: center;
     border-bottom-right-radius: 3rem;
     width: 50%;
     padding: .5rem 2rem;
+}
+
+
+ /* watch page */
+.liveVideo{
+    height: 100vh;
+}
+
+#watchPage{
+    background: black;
+    position: relative;
+}
+
+#counterWrapper{
+position: absolute;
+z-index: 3;
+top: 25rem;
+left: 0;
+right: 0;
+bottom: 0;
+margin: 0 auto;
+width: 95%;
+height: 8rem;
+
+
+}
+
+#counterWrapper #days, #counterWrapper #hours, #counterWrapper #minutes, #counterWrapper #seconds{
+color: white;
+	font-family: "Source Sans Pro", sans-serif;
+		font-weight: 300;
+		font-size: 2.5rem;
+		line-height: 1.65;
+        margin: 0 .5rem;
+}
+
+#eventMessage{
+    font-size: 1.3rem;
+    color: white;
+	font-family: "Source Sans Pro", sans-serif;
+		font-weight: 300;
+		font-size: 1.5rem;
+        margin: auto;
+        width: 100%;
+        text-align: center;
 }
